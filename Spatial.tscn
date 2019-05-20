@@ -1,0 +1,609 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Spatial.gd" type="Script" id=1]
+[ext_resource path="res://KinematicBody.gd" type="Script" id=2]
+[ext_resource path="res://Fonts/gugi.tres" type="DynamicFont" id=3]
+[ext_resource path="res://ColorPickerButton.gd" type="Script" id=4]
+[ext_resource path="res://Colors/blankColor.png" type="Texture" id=5]
+[ext_resource path="res://cp_1.gd" type="Script" id=6]
+[ext_resource path="res://Mode.gd" type="Script" id=7]
+
+[sub_resource type="BoxShape" id=1]
+
+[sub_resource type="Environment" id=2]
+background_mode = 1
+background_color = Color( 0.121569, 0.129412, 0.117647, 1 )
+background_energy = 1.18
+ambient_light_color = Color( 1, 1, 1, 0.105882 )
+ambient_light_energy = 0.3
+
+[node name="Main" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="KinematicBody" type="KinematicBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5 )
+script = ExtResource( 2 )
+
+[node name="Head" type="Spatial" parent="KinematicBody"]
+
+[node name="Camera" type="Camera" parent="KinematicBody/Head"]
+near = 0.01
+far = 408.4
+
+[node name="CollisionShape" type="CollisionShape" parent="KinematicBody"]
+shape = SubResource( 1 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.193493, -0.869467, 0.45452, 0.413176, 0.492404, 0.766044, -0.889857, 0.0395722, 0.454519, 13.3011, 31.1498, 3.69138 )
+light_color = Color( 0.643137, 0.643137, 0.643137, 1 )
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 2 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="LeftControls" type="Node2D" parent="CanvasLayer"]
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer/LeftControls"]
+z_index = -20
+
+[node name="LeftPanel" type="ColorRect" parent="CanvasLayer/LeftControls/Node2D"]
+margin_right = 260.0
+margin_bottom = 800.0
+color = Color( 0.203922, 0.203922, 0.203922, 1 )
+
+[node name="Label" type="Label" parent="CanvasLayer/LeftControls"]
+margin_top = 20.0
+margin_right = 260.0
+margin_bottom = 53.0
+custom_fonts/font = ExtResource( 3 )
+text = "Color Pallete"
+align = 1
+valign = 1
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/LeftControls"]
+margin_left = 10.0
+margin_top = 90.0
+margin_right = 260.0
+margin_bottom = 130.0
+custom_constants/vseparation = 10
+custom_constants/hseparation = 10
+columns = 5
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="CanvasLayer/LeftControls/GridContainer"]
+margin_right = 40.0
+margin_bottom = 20.0
+focus_mode = 0
+button_mask = 2
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 4 )
+
+[node name="ColorPickerButton2" type="ColorPickerButton" parent="CanvasLayer/LeftControls/GridContainer"]
+margin_left = 50.0
+margin_right = 90.0
+margin_bottom = 20.0
+focus_mode = 0
+button_mask = 2
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 4 )
+
+[node name="ColorPickerButton3" type="ColorPickerButton" parent="CanvasLayer/LeftControls/GridContainer"]
+margin_left = 100.0
+margin_right = 140.0
+margin_bottom = 20.0
+focus_mode = 0
+button_mask = 2
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 4 )
+
+[node name="ColorPickerButton4" type="ColorPickerButton" parent="CanvasLayer/LeftControls/GridContainer"]
+margin_left = 150.0
+margin_right = 190.0
+margin_bottom = 20.0
+focus_mode = 0
+button_mask = 2
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 4 )
+
+[node name="ColorPickerButton5" type="ColorPickerButton" parent="CanvasLayer/LeftControls/GridContainer"]
+margin_left = 200.0
+margin_right = 240.0
+margin_bottom = 20.0
+focus_mode = 0
+button_mask = 2
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 4 )
+
+[node name="ColorPickerButton6" type="ColorPickerButton" parent="CanvasLayer/LeftControls/GridContainer"]
+margin_top = 30.0
+margin_right = 40.0
+margin_bottom = 50.0
+focus_mode = 0
+button_mask = 2
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 4 )
+
+[node name="ColorPickerButton7" type="ColorPickerButton" parent="CanvasLayer/LeftControls/GridContainer"]
+margin_left = 50.0
+margin_top = 30.0
+margin_right = 90.0
+margin_bottom = 50.0
+focus_mode = 0
+button_mask = 2
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 4 )
+
+[node name="ColorPickerButton8" type="ColorPickerButton" parent="CanvasLayer/LeftControls/GridContainer"]
+margin_left = 100.0
+margin_top = 30.0
+margin_right = 140.0
+margin_bottom = 50.0
+focus_mode = 0
+button_mask = 2
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 4 )
+
+[node name="ColorPickerButton9" type="ColorPickerButton" parent="CanvasLayer/LeftControls/GridContainer"]
+margin_left = 150.0
+margin_top = 30.0
+margin_right = 190.0
+margin_bottom = 50.0
+focus_mode = 0
+button_mask = 2
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 4 )
+
+[node name="ColorPickerButton10" type="ColorPickerButton" parent="CanvasLayer/LeftControls/GridContainer"]
+margin_left = 200.0
+margin_top = 30.0
+margin_right = 240.0
+margin_bottom = 50.0
+focus_mode = 0
+button_mask = 2
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 4 )
+
+[node name="ColorPickerButton11" type="ColorPickerButton" parent="CanvasLayer/LeftControls/GridContainer"]
+margin_top = 60.0
+margin_right = 40.0
+margin_bottom = 80.0
+focus_mode = 0
+button_mask = 2
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 4 )
+
+[node name="ColorPickerButton12" type="ColorPickerButton" parent="CanvasLayer/LeftControls/GridContainer"]
+margin_left = 50.0
+margin_top = 60.0
+margin_right = 90.0
+margin_bottom = 80.0
+focus_mode = 0
+button_mask = 2
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 4 )
+
+[node name="ColorPickerButton13" type="ColorPickerButton" parent="CanvasLayer/LeftControls/GridContainer"]
+margin_left = 100.0
+margin_top = 60.0
+margin_right = 140.0
+margin_bottom = 80.0
+focus_mode = 0
+button_mask = 2
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 4 )
+
+[node name="ColorPickerButton14" type="ColorPickerButton" parent="CanvasLayer/LeftControls/GridContainer"]
+margin_left = 150.0
+margin_top = 60.0
+margin_right = 190.0
+margin_bottom = 80.0
+focus_mode = 0
+button_mask = 2
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 4 )
+
+[node name="ColorPickerButton15" type="ColorPickerButton" parent="CanvasLayer/LeftControls/GridContainer"]
+margin_left = 200.0
+margin_top = 60.0
+margin_right = 240.0
+margin_bottom = 80.0
+focus_mode = 0
+button_mask = 2
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 4 )
+
+[node name="ColorPickerButton16" type="ColorPickerButton" parent="CanvasLayer/LeftControls/GridContainer"]
+margin_top = 90.0
+margin_right = 40.0
+margin_bottom = 110.0
+focus_mode = 0
+button_mask = 2
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 4 )
+
+[node name="ColorPickerButton17" type="ColorPickerButton" parent="CanvasLayer/LeftControls/GridContainer"]
+margin_left = 50.0
+margin_top = 90.0
+margin_right = 90.0
+margin_bottom = 110.0
+focus_mode = 0
+button_mask = 2
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 4 )
+
+[node name="ColorPickerButton18" type="ColorPickerButton" parent="CanvasLayer/LeftControls/GridContainer"]
+margin_left = 100.0
+margin_top = 90.0
+margin_right = 140.0
+margin_bottom = 110.0
+focus_mode = 0
+button_mask = 2
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 4 )
+
+[node name="ColorPickerButton19" type="ColorPickerButton" parent="CanvasLayer/LeftControls/GridContainer"]
+margin_left = 150.0
+margin_top = 90.0
+margin_right = 190.0
+margin_bottom = 110.0
+focus_mode = 0
+button_mask = 2
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 4 )
+
+[node name="ColorPickerButton20" type="ColorPickerButton" parent="CanvasLayer/LeftControls/GridContainer"]
+margin_left = 200.0
+margin_top = 90.0
+margin_right = 240.0
+margin_bottom = 110.0
+focus_mode = 0
+button_mask = 2
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 4 )
+
+[node name="ColorPickerButton21" type="ColorPickerButton" parent="CanvasLayer/LeftControls/GridContainer"]
+margin_top = 120.0
+margin_right = 40.0
+margin_bottom = 140.0
+focus_mode = 0
+button_mask = 2
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 4 )
+
+[node name="ColorPickerButton22" type="ColorPickerButton" parent="CanvasLayer/LeftControls/GridContainer"]
+margin_left = 50.0
+margin_top = 120.0
+margin_right = 90.0
+margin_bottom = 140.0
+focus_mode = 0
+button_mask = 2
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 4 )
+
+[node name="ColorPickerButton23" type="ColorPickerButton" parent="CanvasLayer/LeftControls/GridContainer"]
+margin_left = 100.0
+margin_top = 120.0
+margin_right = 140.0
+margin_bottom = 140.0
+focus_mode = 0
+button_mask = 2
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 4 )
+
+[node name="ColorPickerButton24" type="ColorPickerButton" parent="CanvasLayer/LeftControls/GridContainer"]
+margin_left = 150.0
+margin_top = 120.0
+margin_right = 190.0
+margin_bottom = 140.0
+focus_mode = 0
+button_mask = 2
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 4 )
+
+[node name="ColorPickerButton25" type="ColorPickerButton" parent="CanvasLayer/LeftControls/GridContainer"]
+margin_left = 200.0
+margin_top = 120.0
+margin_right = 240.0
+margin_bottom = 140.0
+focus_mode = 0
+button_mask = 2
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 4 )
+
+[node name="ColorPickerButton26" type="ColorPickerButton" parent="CanvasLayer/LeftControls/GridContainer"]
+margin_top = 150.0
+margin_right = 40.0
+margin_bottom = 170.0
+focus_mode = 0
+button_mask = 2
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 4 )
+
+[node name="ColorPickerButton27" type="ColorPickerButton" parent="CanvasLayer/LeftControls/GridContainer"]
+margin_left = 50.0
+margin_top = 150.0
+margin_right = 90.0
+margin_bottom = 170.0
+focus_mode = 0
+button_mask = 2
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 4 )
+
+[node name="ColorPickerButton28" type="ColorPickerButton" parent="CanvasLayer/LeftControls/GridContainer"]
+margin_left = 100.0
+margin_top = 150.0
+margin_right = 140.0
+margin_bottom = 170.0
+focus_mode = 0
+button_mask = 2
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 4 )
+
+[node name="ColorPickerButton29" type="ColorPickerButton" parent="CanvasLayer/LeftControls/GridContainer"]
+margin_left = 150.0
+margin_top = 150.0
+margin_right = 190.0
+margin_bottom = 170.0
+focus_mode = 0
+button_mask = 2
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 4 )
+
+[node name="ColorPickerButton30" type="ColorPickerButton" parent="CanvasLayer/LeftControls/GridContainer"]
+margin_left = 200.0
+margin_top = 150.0
+margin_right = 240.0
+margin_bottom = 170.0
+focus_mode = 0
+button_mask = 2
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 4 )
+
+[node name="ColorPickerButton31" type="ColorPickerButton" parent="CanvasLayer/LeftControls/GridContainer"]
+margin_top = 180.0
+margin_right = 40.0
+margin_bottom = 200.0
+focus_mode = 0
+button_mask = 2
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 4 )
+
+[node name="ColorPickerButton32" type="ColorPickerButton" parent="CanvasLayer/LeftControls/GridContainer"]
+margin_left = 50.0
+margin_top = 180.0
+margin_right = 90.0
+margin_bottom = 200.0
+focus_mode = 0
+button_mask = 2
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 4 )
+
+[node name="ColorPickerButton33" type="ColorPickerButton" parent="CanvasLayer/LeftControls/GridContainer"]
+margin_left = 100.0
+margin_top = 180.0
+margin_right = 140.0
+margin_bottom = 200.0
+focus_mode = 0
+button_mask = 2
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 4 )
+
+[node name="ColorPickerButton34" type="ColorPickerButton" parent="CanvasLayer/LeftControls/GridContainer"]
+margin_left = 150.0
+margin_top = 180.0
+margin_right = 190.0
+margin_bottom = 200.0
+focus_mode = 0
+button_mask = 2
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 4 )
+
+[node name="ColorPickerButton35" type="ColorPickerButton" parent="CanvasLayer/LeftControls/GridContainer"]
+margin_left = 200.0
+margin_top = 180.0
+margin_right = 240.0
+margin_bottom = 200.0
+focus_mode = 0
+button_mask = 2
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 4 )
+
+[node name="cp_5" type="TextureButton" parent="CanvasLayer/LeftControls/GridContainer"]
+margin_top = 210.0
+margin_right = 40.0
+margin_bottom = 250.0
+texture_normal = ExtResource( 5 )
+script = ExtResource( 6 )
+
+[node name="cp_6" type="TextureButton" parent="CanvasLayer/LeftControls/GridContainer"]
+margin_left = 50.0
+margin_top = 210.0
+margin_right = 90.0
+margin_bottom = 250.0
+texture_normal = ExtResource( 5 )
+script = ExtResource( 6 )
+
+[node name="cp_7" type="TextureButton" parent="CanvasLayer/LeftControls/GridContainer"]
+margin_left = 100.0
+margin_top = 210.0
+margin_right = 140.0
+margin_bottom = 250.0
+texture_normal = ExtResource( 5 )
+script = ExtResource( 6 )
+
+[node name="cp_8" type="TextureButton" parent="CanvasLayer/LeftControls/GridContainer"]
+margin_left = 150.0
+margin_top = 210.0
+margin_right = 190.0
+margin_bottom = 250.0
+texture_normal = ExtResource( 5 )
+script = ExtResource( 6 )
+
+[node name="cp_9" type="TextureButton" parent="CanvasLayer/LeftControls/GridContainer"]
+margin_left = 200.0
+margin_top = 210.0
+margin_right = 240.0
+margin_bottom = 250.0
+texture_normal = ExtResource( 5 )
+script = ExtResource( 6 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/LeftControls"]
+margin_top = 400.0
+margin_right = 260.0
+margin_bottom = 513.0
+script = ExtResource( 7 )
+
+[node name="Add" type="Button" parent="CanvasLayer/LeftControls/VBoxContainer"]
+margin_right = 260.0
+margin_bottom = 35.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+text = "Add"
+flat = true
+
+[node name="Remove" type="Button" parent="CanvasLayer/LeftControls/VBoxContainer"]
+margin_top = 39.0
+margin_right = 260.0
+margin_bottom = 74.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+text = "Remove"
+flat = true
+
+[node name="Paint" type="Button" parent="CanvasLayer/LeftControls/VBoxContainer"]
+margin_top = 78.0
+margin_right = 260.0
+margin_bottom = 113.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+text = "Paint"
+flat = true
+
+[node name="LeftPanel2" type="ColorRect" parent="CanvasLayer"]
+margin_left = 1240.0
+margin_right = 1500.0
+margin_bottom = 800.0
+color = Color( 0.203922, 0.203922, 0.203922, 1 )
+[connection signal="color_changed" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton" method="_on_ColorPickerButton_color_changed"]
+[connection signal="gui_input" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton" method="_on_ColorPickerButton_gui_input"]
+[connection signal="color_changed" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton2" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton2" method="_on_ColorPickerButton_color_changed"]
+[connection signal="gui_input" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton2" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton2" method="_on_ColorPickerButton_gui_input"]
+[connection signal="color_changed" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton3" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton3" method="_on_ColorPickerButton_color_changed"]
+[connection signal="gui_input" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton3" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton3" method="_on_ColorPickerButton_gui_input"]
+[connection signal="color_changed" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton4" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton4" method="_on_ColorPickerButton_color_changed"]
+[connection signal="gui_input" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton4" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton4" method="_on_ColorPickerButton_gui_input"]
+[connection signal="color_changed" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton5" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton5" method="_on_ColorPickerButton_color_changed"]
+[connection signal="gui_input" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton5" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton5" method="_on_ColorPickerButton_gui_input"]
+[connection signal="color_changed" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton6" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton6" method="_on_ColorPickerButton_color_changed"]
+[connection signal="gui_input" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton6" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton6" method="_on_ColorPickerButton_gui_input"]
+[connection signal="color_changed" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton7" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton7" method="_on_ColorPickerButton_color_changed"]
+[connection signal="gui_input" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton7" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton7" method="_on_ColorPickerButton_gui_input"]
+[connection signal="color_changed" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton8" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton8" method="_on_ColorPickerButton_color_changed"]
+[connection signal="gui_input" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton8" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton8" method="_on_ColorPickerButton_gui_input"]
+[connection signal="color_changed" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton9" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton9" method="_on_ColorPickerButton_color_changed"]
+[connection signal="gui_input" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton9" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton9" method="_on_ColorPickerButton_gui_input"]
+[connection signal="color_changed" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton10" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton10" method="_on_ColorPickerButton_color_changed"]
+[connection signal="gui_input" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton10" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton10" method="_on_ColorPickerButton_gui_input"]
+[connection signal="color_changed" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton11" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton11" method="_on_ColorPickerButton_color_changed"]
+[connection signal="gui_input" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton11" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton11" method="_on_ColorPickerButton_gui_input"]
+[connection signal="color_changed" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton12" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton12" method="_on_ColorPickerButton_color_changed"]
+[connection signal="gui_input" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton12" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton12" method="_on_ColorPickerButton_gui_input"]
+[connection signal="color_changed" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton13" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton13" method="_on_ColorPickerButton_color_changed"]
+[connection signal="gui_input" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton13" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton13" method="_on_ColorPickerButton_gui_input"]
+[connection signal="color_changed" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton14" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton14" method="_on_ColorPickerButton_color_changed"]
+[connection signal="gui_input" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton14" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton14" method="_on_ColorPickerButton_gui_input"]
+[connection signal="color_changed" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton15" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton15" method="_on_ColorPickerButton_color_changed"]
+[connection signal="gui_input" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton15" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton15" method="_on_ColorPickerButton_gui_input"]
+[connection signal="color_changed" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton16" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton16" method="_on_ColorPickerButton_color_changed"]
+[connection signal="gui_input" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton16" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton16" method="_on_ColorPickerButton_gui_input"]
+[connection signal="color_changed" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton17" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton17" method="_on_ColorPickerButton_color_changed"]
+[connection signal="gui_input" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton17" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton17" method="_on_ColorPickerButton_gui_input"]
+[connection signal="color_changed" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton18" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton18" method="_on_ColorPickerButton_color_changed"]
+[connection signal="gui_input" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton18" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton18" method="_on_ColorPickerButton_gui_input"]
+[connection signal="color_changed" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton19" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton19" method="_on_ColorPickerButton_color_changed"]
+[connection signal="gui_input" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton19" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton19" method="_on_ColorPickerButton_gui_input"]
+[connection signal="color_changed" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton20" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton20" method="_on_ColorPickerButton_color_changed"]
+[connection signal="gui_input" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton20" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton20" method="_on_ColorPickerButton_gui_input"]
+[connection signal="color_changed" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton21" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton21" method="_on_ColorPickerButton_color_changed"]
+[connection signal="gui_input" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton21" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton21" method="_on_ColorPickerButton_gui_input"]
+[connection signal="color_changed" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton22" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton22" method="_on_ColorPickerButton_color_changed"]
+[connection signal="gui_input" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton22" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton22" method="_on_ColorPickerButton_gui_input"]
+[connection signal="color_changed" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton23" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton23" method="_on_ColorPickerButton_color_changed"]
+[connection signal="gui_input" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton23" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton23" method="_on_ColorPickerButton_gui_input"]
+[connection signal="color_changed" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton24" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton24" method="_on_ColorPickerButton_color_changed"]
+[connection signal="gui_input" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton24" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton24" method="_on_ColorPickerButton_gui_input"]
+[connection signal="color_changed" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton25" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton25" method="_on_ColorPickerButton_color_changed"]
+[connection signal="gui_input" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton25" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton25" method="_on_ColorPickerButton_gui_input"]
+[connection signal="color_changed" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton26" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton26" method="_on_ColorPickerButton_color_changed"]
+[connection signal="gui_input" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton26" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton26" method="_on_ColorPickerButton_gui_input"]
+[connection signal="color_changed" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton27" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton27" method="_on_ColorPickerButton_color_changed"]
+[connection signal="gui_input" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton27" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton27" method="_on_ColorPickerButton_gui_input"]
+[connection signal="color_changed" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton28" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton28" method="_on_ColorPickerButton_color_changed"]
+[connection signal="gui_input" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton28" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton28" method="_on_ColorPickerButton_gui_input"]
+[connection signal="color_changed" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton29" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton29" method="_on_ColorPickerButton_color_changed"]
+[connection signal="gui_input" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton29" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton29" method="_on_ColorPickerButton_gui_input"]
+[connection signal="color_changed" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton30" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton30" method="_on_ColorPickerButton_color_changed"]
+[connection signal="gui_input" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton30" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton30" method="_on_ColorPickerButton_gui_input"]
+[connection signal="color_changed" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton31" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton31" method="_on_ColorPickerButton_color_changed"]
+[connection signal="gui_input" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton31" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton31" method="_on_ColorPickerButton_gui_input"]
+[connection signal="color_changed" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton32" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton32" method="_on_ColorPickerButton_color_changed"]
+[connection signal="gui_input" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton32" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton32" method="_on_ColorPickerButton_gui_input"]
+[connection signal="color_changed" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton33" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton33" method="_on_ColorPickerButton_color_changed"]
+[connection signal="gui_input" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton33" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton33" method="_on_ColorPickerButton_gui_input"]
+[connection signal="color_changed" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton34" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton34" method="_on_ColorPickerButton_color_changed"]
+[connection signal="gui_input" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton34" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton34" method="_on_ColorPickerButton_gui_input"]
+[connection signal="color_changed" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton35" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton35" method="_on_ColorPickerButton_color_changed"]
+[connection signal="gui_input" from="CanvasLayer/LeftControls/GridContainer/ColorPickerButton35" to="CanvasLayer/LeftControls/GridContainer/ColorPickerButton35" method="_on_ColorPickerButton_gui_input"]
+[connection signal="pressed" from="CanvasLayer/LeftControls/GridContainer/cp_5" to="CanvasLayer/LeftControls/GridContainer/cp_5" method="_on_cp_5_pressed"]
+[connection signal="pressed" from="CanvasLayer/LeftControls/GridContainer/cp_6" to="CanvasLayer/LeftControls/GridContainer/cp_6" method="_on_cp_6_pressed"]
+[connection signal="pressed" from="CanvasLayer/LeftControls/GridContainer/cp_7" to="CanvasLayer/LeftControls/GridContainer/cp_7" method="_on_cp_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/LeftControls/GridContainer/cp_8" to="CanvasLayer/LeftControls/GridContainer/cp_8" method="_on_cp_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/LeftControls/GridContainer/cp_9" to="CanvasLayer/LeftControls/GridContainer/cp_9" method="_on_cp_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/LeftControls/VBoxContainer/Add" to="CanvasLayer/LeftControls/VBoxContainer" method="_on_Add_pressed"]
+[connection signal="pressed" from="CanvasLayer/LeftControls/VBoxContainer/Remove" to="CanvasLayer/LeftControls/VBoxContainer" method="_on_Remove_pressed"]
+[connection signal="pressed" from="CanvasLayer/LeftControls/VBoxContainer/Paint" to="CanvasLayer/LeftControls/VBoxContainer" method="_on_Paint_pressed"]
